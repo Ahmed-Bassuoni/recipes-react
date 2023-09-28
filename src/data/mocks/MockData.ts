@@ -1,5 +1,5 @@
 import { IRecipe } from "../../models/IRecipe";
-import { mockRecipe, mockRecipeInformation } from "./helpers";
+import { mockRecipe, mockRecipeInformation } from "./Helpers";
 
 export const RespiesInformationMockData = mockRecipeInformation({
     "id": 716429,

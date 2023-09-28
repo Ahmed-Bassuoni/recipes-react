@@ -3,7 +3,7 @@ import { BaseRepository } from "../../models/BaseRepository";
 import { IRecipe } from "../../models/IRecipe";
 import { PaginationResponse } from "../../models/PaginationResponse";
 import { RespiesMockData } from "../mocks/MockData";
-import { mockApiResponse, mockPaginationResponse } from "../mocks/helpers";
+import { mockApiResponse, mockPaginationResponse } from "../mocks/Helpers";
 
 
 export class RecipesApi extends BaseRepository<IRecipe> {
