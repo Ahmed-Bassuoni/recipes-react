@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 
+body {
+  @apply bg-slate-100;
+}
+
 .container {
-  @apply bg-gray-200 max-w-screen-xl mx-auto px-4 py-8;
+  @apply max-w-screen-xl mx-auto px-4 md:pt-[94px] pt-[84px];
+}
+
+.app-header {
+  @apply bg-lime-200 fixed w-full z-10 shadow-lime-200 shadow-sm border-lime-300 border-solid border-b-2;
+  .container {
+    @apply px-2 py-2;
+  }
+}
+
+.app-logo {
+    @apply h-14;
+    img {
+      @apply h-full;
+    }
 }

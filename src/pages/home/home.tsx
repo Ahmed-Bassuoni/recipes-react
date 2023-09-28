@@ -6,7 +6,7 @@ import { RoutesPaths } from '../../routes/routes';
 export const Home = () => {
     const { } = useHome();
     return (
-        <div className="container">
+        <div className="">
             <header className="">
                 <h1>Home</h1>
             </header>

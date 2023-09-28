@@ -4,7 +4,7 @@ import { useSearch } from "./search.hooks";
 export const Search = () => {
     const { goToRecipe } = useSearch();
     return (
-        <div className="container">
+        <div className="">
             <header className="">
                 <h1>Search</h1>
             </header>
