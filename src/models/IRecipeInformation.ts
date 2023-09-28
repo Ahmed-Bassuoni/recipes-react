@@ -1,6 +1,6 @@
 import { IExtendedIngredient } from "./IExtendedIngredient";
 
-export interface RecipeInformation {
+export interface IRecipeInformation {
     id:                       number;
     title:                    string;
     image:                    string;
