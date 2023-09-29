@@ -1,0 +1,49 @@
+// Define custom colors and fonts
+$devider-color: #f66f4f;
+
+.home {
+
+    .banner {
+        background-image: url('https://images.unsplash.com/photo-1626200081110-554e02151dfc');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center 15%;
+        height: 50vh;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+    }
+
+    .container {
+
+        .cuisine-section {
+            h2 {
+                border-bottom: 2px solid $devider-color;
+                padding-bottom: 8px;
+                font-size: 2rem;
+            }
+
+            .grid {
+
+                .loader {
+                    font-size: 1rem;
+                    color: #333;
+                    height: 200px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

@@ -1,26 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../fonts/fonts-family.scss';
 
 
 body {
-  @apply bg-slate-100;
+    @apply bg-slate-100;
+    font-family: 'Roboto', sans-serif;
+
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
 }
 
 .container {
-  @apply max-w-screen-xl mx-auto px-4 md:pt-[94px] pt-[84px];
+    @apply max-w-screen-2xl mx-auto px-4 pt-[74px];
 }
 
 .app-header {
-  @apply bg-lime-200 fixed w-full z-10 shadow-lime-200 shadow-sm border-lime-300 border-solid border-b-2;
-  .container {
-    @apply px-2 py-2;
-  }
+    @apply bg-lime-200 fixed w-full z-50 shadow-lime-200 shadow-sm border-lime-300 border-solid border-b-2;
+
+    .container {
+        @apply px-2 py-2;
+    }
 }
 
 .app-logo {
     @apply h-14;
+
     img {
-      @apply h-full;
+        @apply h-full;
     }
 }
