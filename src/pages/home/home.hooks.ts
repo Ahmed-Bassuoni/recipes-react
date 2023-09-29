@@ -11,7 +11,7 @@ export const useHome = () => {
     useEffect(() => {
         async function fetchRecipesForCuisine(cuisine: string) {
             try {
-                const recipesResponse = await recipesApi.searchRecipes({ cuisine, number: 4 });
+                const recipesResponse = await recipesApi.searchRecipes({ cuisine, number: 8 });
                 setCuisines(prevCuisines => {
                     return prevCuisines.map(cuisineItem => {
                         if (cuisineItem.name === cuisine) {

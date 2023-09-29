@@ -1,0 +1,15 @@
+.quick-search {
+    @apply md:max-w-[600px] w-full relative;
+
+    .icon {
+        @apply absolute top-1 flex items-center text-gray-500 text-lg;
+    }
+
+    .fa-search {
+        @apply left-0 pl-3;
+    }
+
+    .fa-times {
+        @apply right-0 pr-3;
+    }
+}

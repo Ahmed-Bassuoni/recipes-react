@@ -46,8 +46,8 @@ export class RecipesApi extends BaseRepository<IRecipe> {
      * @returns
      */
     async searchRecipes(params?: any ): Promise<PaginationResponse<IRecipe>> {
-        const shuffledData = shuffle(RespiesMockData);  // Shuffle the data array
-        const selectedData = shuffledData.slice(0, 8); // Select the first 8 items from the shuffled array
+        const shuffledData = shuffle(RespiesMockData);
+        const selectedData = shuffledData.slice(0, params['number'] || 8);
         const result = await Promise.resolve(mockPaginationResponse<IRecipe>(selectedData));
         console.log('RecipesApi.searchRecipes: ', result);
         return result
