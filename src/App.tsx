@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="app">
       <AppHeader />
-      <div className="container">
+      <div className="app-container">
         <Routes>
           {Router.map(({ path, component }) => (
             <Route key={path} path={path} Component={component} />

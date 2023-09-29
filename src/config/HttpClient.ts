@@ -3,13 +3,13 @@ import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { NetworkConstants } from "../constants/NetworkConstants";
 
 export abstract class HttpClient {
-
     protected instance: AxiosInstance | undefined;
 
     protected createInstance(): AxiosInstance {
         this.instance = axios.create({
             baseURL: NetworkConstants.BASE_URL,
             timeout: NetworkConstants.TIMEOUT,
+            withCredentials: false,
             headers: {
                 'Content-Type': NetworkConstants.CONTENT_TYPE,
             }
@@ -35,7 +35,7 @@ export abstract class HttpClient {
             (config: any) => {
                 // handle API KEYS and AUTH headers here
                 if (config.url.includes('api.spoonacular')) {
-                    config.headers['X-RapidAPI-Key'] = NetworkConstants.API_KEY;
+                    config.params = {...config.params, apiKey: NetworkConstants.API_KEY}
                 }
                 return config;
             }
@@ -47,8 +47,8 @@ export abstract class HttpClient {
         return Promise.reject(error);
     }
 
-    private onResponseSuccess({ data }: AxiosResponse): any {
-        return data;
+    private onResponseSuccess(response: AxiosResponse): any {
+        return response;
     }
 
 }
