@@ -14,7 +14,11 @@ body {
 }
 
 .container {
-    @apply max-w-screen-2xl mx-auto px-4 pt-[74px];
+    @apply max-w-screen-2xl mx-auto px-4;
+}
+
+.app-container {
+    @apply pt-[74px];
 }
 
 .app-header {

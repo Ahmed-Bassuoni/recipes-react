@@ -24,14 +24,18 @@ export const useQuickSearch = () => {
             setRecipes(results.data);
             setTotalResutlsCount(results.totalResults);
             setIsLoading(false);
-        } else if(term.length <= 0) {
+        } else if (term.length <= 0) {
             clearSearch();
         }
     }, 250),
         [recipesApi]);
 
     const goToSearchPage = () => {
-        navigate(RoutesPaths.SEARCH)
+        clearSearch();
+        navigate({
+            pathname: RoutesPaths.SEARCH,
+            search: `?query=${searchTerm}`
+        })
     }
 
     useEffect(() => {
@@ -55,6 +59,6 @@ export const useQuickSearch = () => {
         setSearchTerm,
         clearSearch,
         goToSearchPage,
-         setIsFocused
+        setIsFocused
     };
 };

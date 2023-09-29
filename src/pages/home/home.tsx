@@ -7,7 +7,7 @@ export const Home = () => {
     const { cuisines } = useHome();
     console.log(cuisines);
     return (
-        <div className="home bg-gray-100 font-sans">
+        <div className="home bg-gray-100">
             <div className="banner relative h-96 bg-cover bg-center flex items-center justify-center text-white">
                 <div className="absolute inset-0 bg-black opacity-40"></div>
                 <h1 className="text-5xl font-extrabold text-center z-10">Welcome to Our Recipe App</h1>
