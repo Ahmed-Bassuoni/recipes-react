@@ -12,4 +12,16 @@
     .fa-times {
         @apply right-0 pr-3;
     }
+
+    .results-container {
+        @apply bg-white rounded-b-md mt-4 p-4 absolute md:w-full md:h-auto md:right-0 -right-2 h-screen w-screen min-h-[400px] overflow-auto transition-all;
+
+        &::after {
+            content: '';
+            @apply fixed -z-10 top-[74px] left-0 w-full h-full bg-black opacity-80 pointer-events-none;
+
+        }
+    }
+
+
 }

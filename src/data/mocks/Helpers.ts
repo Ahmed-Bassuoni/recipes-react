@@ -82,7 +82,7 @@ export const mockApiResponse = <T>(data: T, succeeded: boolean = true, errors?: 
 });
 
 export const mockPaginationResponse = <T>(data: T[], totalResults: number = 0, offset: number = 0, number: number = 0): PaginationResponse<T> => ({
-    totalResults: totalResults,
+    totalResults: totalResults || data.length,
     offset: offset,
     number: number,
     data: data,

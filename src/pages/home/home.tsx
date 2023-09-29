@@ -19,7 +19,7 @@ export const Home = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             {cuisine.recipes ? (
                                 cuisine.recipes.map((recipe) => (
-                                   <RecipeCard recipe={recipe} />
+                                   <RecipeCard key={recipe.id} recipe={recipe} />
                                 ))
                             ) : (
                                 <div className="loader col-span-full flex justify-center items-center">
