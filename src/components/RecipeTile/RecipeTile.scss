@@ -1,0 +1,11 @@
+.recipe-tile {
+    @apply flex items-center border-b-slate-100 p-2 rounded-lg cursor-pointer hover:bg-gray-100;
+
+    img {
+        @apply w-14 h-14 rounded-md;
+    }
+
+    p {
+        @apply ml-4 line-clamp-2;
+    }
+}

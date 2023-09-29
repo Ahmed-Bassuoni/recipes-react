@@ -14,7 +14,11 @@ body {
 }
 
 .container {
-    @apply max-w-screen-2xl mx-auto px-4 pt-[74px];
+    @apply max-w-screen-2xl mx-auto px-4;
+}
+
+.app-container {
+    @apply pt-[74px];
 }
 
 .app-header {
@@ -26,7 +30,7 @@ body {
 }
 
 .app-logo {
-    @apply h-14;
+    @apply h-14 md:me-0 me-4;
 
     img {
         @apply h-full;

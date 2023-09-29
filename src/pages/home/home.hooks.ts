@@ -2,16 +2,17 @@ import { useState, useEffect, useMemo } from "react";
 import { RecipesApi } from "../../data/apis/recipe";
 import { Cuisines } from '../../constants/Cuisines';
 import { ICuisine } from "../../models/ICuisine";
+import { ApisService } from "../../utils/ApisService";
 
 
 export const useHome = () => {
     const [cuisines, setCuisines] = useState<ICuisine[]>(Object.values(Cuisines).map(cuisine => ({ name: cuisine, recipes: [] })));
-    const recipesApi = useMemo(() => new RecipesApi(), []);
+    const recipesApi = useMemo(() => ApisService.getRecipesApi(), []);
 
     useEffect(() => {
         async function fetchRecipesForCuisine(cuisine: string) {
             try {
-                const recipesResponse = await recipesApi.searchRecipes({ cuisine, number: 4 });
+                const recipesResponse = await recipesApi.searchRecipes({ cuisine, number: 8 });
                 setCuisines(prevCuisines => {
                     return prevCuisines.map(cuisineItem => {
                         if (cuisineItem.name === cuisine) {
