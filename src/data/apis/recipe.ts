@@ -2,13 +2,9 @@ import { ApiResponse } from "../../models/ApiResponse";
 import { BaseRepository } from "../../models/BaseRepository";
 import { IRecipe } from "../../models/IRecipe";
 import { PaginationResponse } from "../../models/PaginationResponse";
-import { RespiesMockData } from "../mocks/MockData";
-import { mockApiResponse, mockPaginationResponse } from "../mocks/Helpers";
-import { shuffle } from 'lodash';
 
 
 export class RecipesApi extends BaseRepository<IRecipe> {
-
     constructor() {
         super();
         this.createInstance();
@@ -19,8 +15,14 @@ export class RecipesApi extends BaseRepository<IRecipe> {
      * Call this method to get a recipe by id
      * @param id recipe id
      */
-    async get(id: any): Promise<ApiResponse<IRecipe>> {
-        return Promise.resolve(mockApiResponse<IRecipe>(RespiesMockData[0]));
+    async get(id: string | number): Promise<ApiResponse<IRecipe>> {
+        try {
+            const result: ApiResponse<IRecipe> = await super.get(`${id}/information`);
+            return result;
+        } catch (error) {
+            console.error(`Error fetching recipe id(${id}):`, error);
+            throw error;
+        }
     }
 
     /**
@@ -28,16 +30,15 @@ export class RecipesApi extends BaseRepository<IRecipe> {
      * @param params search parameters
      */
     async getMany(params?: any): Promise<PaginationResponse<IRecipe>> {
-        console.log('RecipesApi.getMany: ', params);
         try {
             const result: PaginationResponse<IRecipe> = await super.getMany({
-              ...params
+                ...params
             });
             return result;
-          } catch (error) {
+        } catch (error) {
             console.error('Error fetching recipes:', error);
             throw error;
-          }
+        }
     }
 
     /**
@@ -45,21 +46,16 @@ export class RecipesApi extends BaseRepository<IRecipe> {
      * @param params search aparamerters
      * @returns
      */
-    async searchRecipes(params?: any ): Promise<PaginationResponse<IRecipe>> {
-        const shuffledData = shuffle(RespiesMockData);
-        const selectedData = shuffledData.slice(0, params['number'] || 8);
-        const result = await Promise.resolve(mockPaginationResponse<IRecipe>(selectedData));
-        console.log('RecipesApi.searchRecipes: ', result);
-        return result
-        /* try {
+    async searchRecipes(params?: any): Promise<PaginationResponse<IRecipe>> {
+        try {
             const result: PaginationResponse<IRecipe> = await super.getMany({
-              ...params
+                ...params
             }, 'complexSearch');
             return result;
-          } catch (error) {
+        } catch (error) {
             console.error('Error fetching recipes:', error);
             throw error;
-          } */
+        }
     }
 
 

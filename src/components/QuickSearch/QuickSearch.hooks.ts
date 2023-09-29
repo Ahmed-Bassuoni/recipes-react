@@ -4,6 +4,7 @@ import { RecipesApi } from "../../data/apis/recipe";
 import { debounce, set } from "lodash";
 import { useNavigate } from "react-router-dom";
 import { RoutesPaths } from "../../routes/routes";
+import { ApisService } from "../../utils/ApisService";
 
 
 
@@ -13,7 +14,7 @@ export const useQuickSearch = () => {
     const [recipes, setRecipes] = useState<IRecipe[]>([]);
     const [totalResutlsCount, setTotalResutlsCount] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
-    const recipesApi = useMemo(() => new RecipesApi(), []);
+    const recipesApi = useMemo(() => ApisService.getRecipesApi(), []);
     const [isFocused, setIsFocused] = useState(false)
 
     const doSearch = useCallback(debounce(async (term) => {
