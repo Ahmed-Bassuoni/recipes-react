@@ -1,6 +1,7 @@
 import { ApiResponse } from "../../models/ApiResponse";
 import { BaseRepository } from "../../models/BaseRepository";
 import { IRecipe } from "../../models/IRecipe";
+import { IRecipeInformation } from "../../models/IRecipeInformation";
 import { PaginationResponse } from "../../models/PaginationResponse";
 
 
@@ -15,10 +16,10 @@ export class RecipesApi extends BaseRepository<IRecipe> {
      * Call this method to get a recipe by id
      * @param id recipe id
      */
-    async get(id: string | number): Promise<ApiResponse<IRecipe>> {
+    async get(id: string | number): Promise<ApiResponse<IRecipeInformation>> {
         try {
             const result: ApiResponse<IRecipe> = await super.get(`${id}/information`);
-            return result;
+            return result as ApiResponse<IRecipeInformation>;
         } catch (error) {
             console.error(`Error fetching recipe id(${id}):`, error);
             throw error;

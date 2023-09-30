@@ -2,9 +2,10 @@ import { shuffle } from "lodash";
 import { BaseRepository } from "../../models/BaseRepository";
 import { IRecipe } from "../../models/IRecipe";
 import { PaginationResponse } from "../../models/PaginationResponse";
-import { RespiesMockData } from "./MockData";
+import { RespiesInformationMockData, RespiesMockData } from "./MockData";
 import { mockApiResponse, mockPaginationResponse } from "./Helpers";
 import { ApiResponse } from "../../models/ApiResponse";
+import { IRecipeInformation } from "../../models/IRecipeInformation";
 
 export class RecipesApiMock extends BaseRepository<IRecipe> {
     constructor() {
@@ -17,8 +18,8 @@ export class RecipesApiMock extends BaseRepository<IRecipe> {
      * Call this method to get a recipe by id
      * @param id recipe id
      */
-    async get(id: any): Promise<ApiResponse<IRecipe>> {
-        return Promise.resolve(mockApiResponse<IRecipe>(RespiesMockData[0]));
+    async get(id: any): Promise<ApiResponse<IRecipeInformation>> {
+        return Promise.resolve(mockApiResponse<IRecipeInformation>(RespiesInformationMockData)) ;
     }
 
     /**
